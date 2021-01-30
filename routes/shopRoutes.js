@@ -1,27 +1,19 @@
 const express = require("express");
 const router = express.Router();
+const{getHomePage,getBlogPage,getContactPage,getSingleBlogPage,getTrackingPage,getConfirmationPage,getLoginPage,getCheckoutPage,getSingleProductPage,getRegisterPage,getShopCategoryPage,getShopingCartPage}= require("../controllers/shopControler")
 
-router.get("/", (req, res, next) => {
-    res.send("<h1>Home page</h1>")
-});
-router.get("/about",(req, res, next) => {
-    res.send("<h1>About page</h1>")
-})
-router.get("/Vacancies",(req, res, next) => {
-    res.send("<h1>Vacancies page</h1>")
-})
-router.get("/Careers",(req, res, next) => {
-    res.send("<h1>Careers page</h1>")
-})
-router.get("/Contact",(req, res, next) => {
-    res.send("<h1>Contact page</h1>")
-})
-router.get("/Resources",(req, res, next) => {
-    res.send("<h1>Resources page</h1>")
-})
-router.get("/",(req, res, next) => {
-    res.send("<h1>Home page</h1>")
-})
+router.get("/", (getHomePage));
+router.get("/blog", (getBlogPage));
+router.get("/contact", (getContactPage));
+router.get("/single-blog", (getSingleBlogPage));
+router.get("/tracking", (getTrackingPage));
+router.get("/confirmation", (getConfirmationPage));
+router.get("/login", (getLoginPage));
+router.get("/checkout", (getCheckoutPage));
+router.get("/single-product", (getSingleProductPage));
+router.get("/register", (getRegisterPage));
+router.get("/shop-category", (getShopCategoryPage));
+router.get("/shoping-cart", (getShopingCartPage));
 
 
 module.exports = router;
