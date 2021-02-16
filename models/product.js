@@ -4,11 +4,10 @@ const Sequalize = require("sequelize");
 
 const sequalize = require("../utils/database")
 
-//назва таблиці 
 const Product = sequalize.define("product", {
     id: {
-        type: Sequalize.INTEGER, //тип данних інта - ціле число
-        autoIncrement: true, // наш айдішнік буде збільшуватись на 1 після кожного нового айді
+        type: Sequalize.INTEGER, 
+        autoIncrement: true, 
         allowNull: false,
         primaryKey: true,
     },

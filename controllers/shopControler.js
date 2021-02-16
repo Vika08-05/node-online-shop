@@ -34,12 +34,15 @@ exports.getRegisterPage =(req, res, next)=>{
 }
 exports.getShopCategoryPage = (req, res, next) => {
     Product.findAll()
-        .then(([rows, fildDate]) => {
-            console.log("Data from DB", rows)
-            res.render('pages/shop-category');
+        .then((products) => {
+            res.render('pages/shop-category', {
+                products: products,
+            })
         })
         .catch(err => console.log(error));
 }
+
+
 exports.getShopingCartPage =(req, res, next)=>{
     res.render('pages/shoping-cart');
 }
