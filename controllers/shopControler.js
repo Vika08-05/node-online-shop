@@ -1,4 +1,8 @@
-exports.getHomePage =(req, res, next)=>{
+const Product = require("../models/product")
+
+
+
+exports.getHomePage = (req, res, next) => {
     res.render('pages/index');
 }
 exports.getBlogPage =(req, res, next)=>{
@@ -28,9 +32,17 @@ exports.getSingleProductPage =(req, res, next)=>{
 exports.getRegisterPage =(req, res, next)=>{
     res.render('pages/register');
 }
-exports.getShopCategoryPage =(req, res, next)=>{
-    res.render('pages/shop-category');
+exports.getShopCategoryPage = (req, res, next) => {
+    Product.findAll()
+        .then(([rows, fildDate]) => {
+            console.log("Data from DB", rows)
+            res.render('pages/shop-category');
+        })
+        .catch(err => console.log(error));
 }
 exports.getShopingCartPage =(req, res, next)=>{
     res.render('pages/shoping-cart');
+}
+exports.get404 =(req, res, next)=>{
+    res.status(404).render("pages/404.ejs")
 }
